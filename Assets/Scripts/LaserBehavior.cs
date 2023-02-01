@@ -6,9 +6,11 @@ public class LaserBehavior : MonoBehaviour{
 	Vector3 position, direction;
 	GameObject laserObject;
 	LineRenderer laser;
+	string scene;
 	List<Vector3> laserIndicies = new List<Vector3>();
 
-	public LaserBehavior(Vector3 _position, Vector3 _direction, Material _material){
+	public LaserBehavior(Vector3 _position, Vector3 _direction, Material _material, string changeScene){
+		this.scene = changeScene;
 		this.laser = new LineRenderer();
 		this.laserObject = new GameObject();
 		this.laserObject.name = "Laser Beam";
@@ -52,6 +54,7 @@ public class LaserBehavior : MonoBehaviour{
 	void CheckHit(RaycastHit hitInfo, Vector3 _direction, LineRenderer _laser){
 		if (hitInfo.collider.gameObject.tag == "Target"){
 			Destroy(GameObject.Find("Target"));
+			Application.LoadLevel (scene);
 		}
 
 		if(hitInfo.collider.gameObject.tag == "Mirror"){
