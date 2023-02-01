@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1930126183078703419}
   - component: {fileID: 3165069189550773679}
   - component: {fileID: 4459845223987830468}
+  - component: {fileID: -4183971750237913652}
   m_Layer: 0
   m_Name: ConvexMirror
   m_TagString: Mirror
@@ -98,3 +99,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 2d2c3770bb861a6358613d1daaf6076f, type: 3}
+--- !u!114 &-4183971750237913652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523717357491067722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faa23bdc573b40b69b3f812c6f6e0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
