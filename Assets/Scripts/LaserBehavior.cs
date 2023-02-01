@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserBehavior 
-{
+public class LaserBehavior : MonoBehaviour{
 	Vector3 position, direction;
 	GameObject laserObject;
 	LineRenderer laser;
@@ -13,12 +12,13 @@ public class LaserBehavior
 		this.laser = new LineRenderer();
 		this.laserObject = new GameObject();
 		this.laserObject.name = "Laser Beam";
+		this.laserObject.tag = "Laser";
 		this.position = _position;
 		this.direction = _direction;
 
 		this.laser = this.laserObject.AddComponent(typeof(LineRenderer)) as LineRenderer;
-		this.laser.startWidth = 0.2f;
-		this.laser.endWidth = 0.2f;
+		this.laser.startWidth = 0.3f;
+		this.laser.endWidth = 0.3f;
 		this.laser.material = _material;
 		this.laser.startColor = Color.blue;
 		this.laser.endColor = Color.blue;
@@ -50,6 +50,10 @@ public class LaserBehavior
 		}
 	}
 	void CheckHit(RaycastHit hitInfo, Vector3 _direction, LineRenderer _laser){
+		if (hitInfo.collider.gameObject.tag == "Target"){
+			Destroy(GameObject.Find("Target"));
+		}
+
 		if(hitInfo.collider.gameObject.tag == "Mirror"){
 			Vector3 startNewRay = hitInfo.point;
 			Vector3 newDirection = Vector3.Reflect(_direction, hitInfo.normal);
